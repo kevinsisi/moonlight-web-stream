@@ -1,4 +1,4 @@
-const CACHE_NAME = "moonlight-web-shell-v2";
+const CACHE_NAME = "moonlight-web-shell-v3";
 const APP_SHELL = [
     "./",
     "./index.html",
@@ -44,7 +44,6 @@ self.addEventListener("fetch", (event) => {
     }
 
     if (request.mode === "navigate") {
-        event.respondWith(networkFirst(request, "./index.html"));
         return;
     }
 

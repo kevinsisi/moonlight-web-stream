@@ -187,8 +187,13 @@ pub async fn auth_middleware(
 }
 
 pub fn build_cookie<'a>(app: &'a App, expiration: Duration, session_str: &'a str) -> Cookie<'a> {
+    let path = match app.config().web_server.url_path_prefix.as_str() {
+        "" => "/",
+        path => path,
+    };
+
     Cookie::build(COOKIE_SESSION_TOKEN_NAME, session_str)
-        .path(&app.config().web_server.url_path_prefix)
+        .path(path)
         .same_site(SameSite::Strict)
         .http_only(true) // not accessible via js
         .secure(app.config().web_server.session_cookie_secure)
