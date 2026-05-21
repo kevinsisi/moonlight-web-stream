@@ -1,0 +1,24 @@
+services:
+  moonlight-web:
+    image: mrcreativ3001/moonlight-web-stream:latest
+    container_name: moonlight-web
+    restart: unless-stopped
+    ports:
+      # Check this host port before starting. Change 60000 if it conflicts.
+      - "${MOONLIGHT_BIND_IP:-0.0.0.0}:60000:60000/tcp"
+      # Keep this UDP host range aligned with WEBRTC_PORT_RANGE below.
+      - "${MOONLIGHT_BIND_IP:-0.0.0.0}:60001-60101:60001-60101/udp"
+    environment:
+      # Internal listener; keep this matching the container-side web port above.
+      BIND_ADDRESS: "0.0.0.0:60000"
+      # Must match the published UDP range.
+      WEBRTC_PORT_RANGE: "60001:60101"
+      # Set to the LAN, Tailscale, or public IP browsers can reach.
+      # For local-only testing, 127.0.0.1 is acceptable.
+      WEBRTC_NAT_1TO1_HOST: "${MOONLIGHT_NAT_HOST:-127.0.0.1}"
+    volumes:
+      - moonlight-server:/moonlight-web/server
+
+volumes:
+  moonlight-server:
+    name: moonlight-server

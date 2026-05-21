@@ -3,6 +3,16 @@
 An unofficial [Moonlight Client](https://moonlight-stream.org/) allowing you to stream your pc to the Web.
 It hosts a Web Server which will forward [Sunshine](https://docs.lizardbyte.dev/projects/sunshine/latest/) traffic to a Browser using the [WebRTC Api](https://webrtc.org/).
 
+## AI Handoff Quick Start
+
+This repository is a full-source fork of Moonlight Web with local deployment handoff notes.
+
+Read [`AI_HANDOFF.md`](AI_HANDOFF.md) before deploying. The deploy guide explicitly covers:
+- how to start with Docker Compose
+- how to run without any domain by using `http://SERVER_IP:60000`
+- how to add an optional reverse-proxy domain
+- the required preflight check: confirm the selected server ports are not already in use before starting the service
+
 ![An image displaying: PC with sunshine and moonlight web installed, a browser making requests to it](/readme/structure.png)
 
 ## Overview
