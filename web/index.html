@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="google" content="notranslate" />
+    <meta name="theme-color" content="#00111f" />
+    <meta name="color-scheme" content="dark" />
     <title>Moonlight</title>
     <link rel="icon" href="resources/moonlight.svg" sizes="any" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="resources/moonlight.svg">
 
     <link rel="stylesheet" href="styles/standard.css" id="style">
     <script type="module" src="styles/index.js"></script>
 
+    <script src="pwa.js" defer></script>
     <script type="module" src="index.js" defer></script>
 
     <!-- Manifest for Mobile Apps as Website -->
@@ -23,6 +27,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Moonlight Web">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no" />
 
     <script>
         try {

@@ -123,6 +123,19 @@ moonlight.example.com {
 
 Important: the reverse proxy only handles the web UI. For WebRTC over networks, the browser must still be able to reach the server's advertised UDP ports, or you must configure TURN / WebSocket fallback according to the upstream README.
 
+## PWA / iPhone Notes
+
+This fork includes a lightweight PWA shell:
+
+- `web/manifest.json`
+- `web/sw.js`
+- `web/pwa.js`
+- PWA/iOS meta tags on `index.html`, `stream.html`, and `admin.html`
+
+For iPhone, open the HTTPS domain in Safari and use Share -> Add to Home Screen. Launching from the Home Screen avoids most Safari toolbar cropping during landscape streaming.
+
+The service worker intentionally bypasses `/api/*` requests and only caches app shell/static assets. Do not cache stream API or pairing API traffic.
+
 ## Current HomeProject Caddy Mapping
 
 On the HomeProject RPi Caddy host, the active mapping is:

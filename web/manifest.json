@@ -1,9 +1,23 @@
 {
   "name": "Moonlight Web",
   "short_name": "Moonlight",
-  "start_url": "./",
+  "id": "./",
+  "description": "Moonlight Web game streaming client",
+  "start_url": "./?source=pwa",
+  "scope": "./",
   "display": "standalone",
-  "background_color": "#303030",
-  "theme_color": "#000000",
-  "icons": []
+  "display_override": ["fullscreen", "standalone", "browser"],
+  "orientation": "any",
+  "background_color": "#00111f",
+  "theme_color": "#00111f",
+  "categories": ["games", "entertainment", "utilities"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "resources/moonlight.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
 }
